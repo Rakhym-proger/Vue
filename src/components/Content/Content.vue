@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
 
 export default {
   name: "Content",
@@ -30,9 +29,8 @@ export default {
 
       // alert(this.name + "   " + this.email);
     },
-    checkSecond(array){
-      this.tel = array;
-      this.$store.commit('updateTel', this.tel);
+    checkSecond(tel){
+      this.$store.commit('updateTel', tel);
 
       // alert(this.tel);
     }

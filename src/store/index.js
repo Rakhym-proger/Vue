@@ -8,7 +8,6 @@ export default new Vuex.Store({
     mutations: {
         updateName(state, data) {
             state.name = data;
-            alert("Store: " + state.name);
         },
         updateEmail(state, data) {
             state.email = data;
@@ -31,10 +30,13 @@ export default new Vuex.Store({
         },
         getTel(state) {
             return state.tel;
+        },
+        isFirstTrue(state){
+            return (state.name !== null && state.email !== null);
+        },
+        isPrevTrue(state){
+            return (state.name !== null && state.email !== null && state.tel !== null);
         }
-    },
-
-
-    modules: {}
+    }
 
 });

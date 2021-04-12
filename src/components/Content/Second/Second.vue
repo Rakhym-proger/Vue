@@ -1,6 +1,6 @@
 <template>
   <v-card-title>
-    <form style="width: 100%;" @submit="(e)=>{submit(e)}">
+    <form style="width: 100%;" @submit.prevent="submit">
       <masked-input v-model="tel" mask="\+\7\(711\)-111-11-11" placeholder="Phone number" style="width: 100%"/>
 
 
@@ -35,12 +35,19 @@ export default {
     MaskedInput
   },
 
+  created() {
+    if(!this.$store.getters.isFirstTrue){
+      window.location.pathname = "/";
+    }
+  },
+
   methods: {
     submit(e) {
       e.preventDefault();
       let a = this.tel;
       if (!a.includes("_") && a.length > 0) {
-        this.$props.checkSecond(this.tel);
+        this.checkSecond(this.tel);
+        this.$router.push('third');
       }
     }
   },

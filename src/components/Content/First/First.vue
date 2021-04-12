@@ -1,6 +1,6 @@
 <template>
   <v-card-title>
-    <form style="width: 100%;" @submit="(e)=>{submit(e)}">
+    <form style="width: 100%;" @submit.prevent="submit">
       <v-text-field
           v-model="name"
           :error-messages="nameErrors"
@@ -71,9 +71,14 @@ export default {
     },
   },
 
+  created() {
+    this.$store.commit('updateName', null);
+    this.$store.commit('updateEmail', null);
+    this.$store.commit('updateTel', null);
+  },
+
   methods: {
-    submit(e) {
-      e.preventDefault();
+    submit() {
       this.$v.$touch();
 
       if(!this.$v.$invalid){
@@ -81,10 +86,8 @@ export default {
           name: this.name,
           email: this.email
         }
-        this.$props.checkArray(array);
-        // window.location.pathname = "/second";
-      }else {
-        this.flag = false;
+        this.checkArray(array);
+        this.$router.push('second');
       }
     }
   },
