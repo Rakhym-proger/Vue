@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-card-title>
-      <p>Name: {{name}}</p>
-      <p>Email: {{email}}</p>
-      <p>Tel: {{tel}}</p>
+      <p style="width: 100%;">Name: {{name}}</p>
+      <p style="width: 100%;">Email: {{email}}</p>
+      <p style="width: 100%;">Tel: {{tel}}</p>
     </v-card-title>
     <v-card-actions style="width: 100%;">
       <v-btn
