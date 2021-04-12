@@ -1,7 +1,7 @@
 <template>
   <v-card-title>
     <form style="width: 100%;" @submit.prevent="submit">
-      <masked-input v-model="tel" mask="\+\7\(711\)-111-11-11" placeholder="Phone number" style="width: 100%"/>
+      <masked-input id="tel" class="" v-model="tel" mask="\+\7\(711\)-111-11-11" placeholder="Phone number" style="width: 100%"/>
 
 
       <v-card-actions style="width: 100%;">
@@ -48,6 +48,12 @@ export default {
       if (!a.includes("_") && a.length > 0) {
         this.checkSecond(this.tel);
         this.$router.push('third');
+      }
+      else{
+        document.getElementById('tel').classList.add('error');
+        setTimeout(function(){
+          document.getElementById('tel').classList.remove('error');
+        }, 2000);
       }
     }
   },
