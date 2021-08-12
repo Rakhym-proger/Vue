@@ -1,5 +1,3 @@
-# ensk
-
 ## Project setup
 ```
 npm install
